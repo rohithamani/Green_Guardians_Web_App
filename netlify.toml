@@ -1,0 +1,13 @@
+[build]
+  # The command to run before deploying (npm run build creates the 'dist' folder)
+  command = "npm run build"
+  
+  # The directory to deploy (the output of the vite build command)
+  publish = "dist"
+  
+  # Optional: Fix for the MIME type issue (Good practice for SPAs)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Type = "text/javascript" 
+    Content-Type = "application/javascript"
