@@ -5,9 +5,11 @@
   # The directory to deploy (the output of the vite build command)
   publish = "dist"
   
-  # Optional: Fix for the MIME type issue (Good practice for SPAs)
+# Headers section to fix the MIME type issue
 [[headers]]
   for = "/*"
   [headers.values]
+    # Use the standard MIME type for ES Modules (which Vite generates)
     Content-Type = "text/javascript" 
-    Content-Type = "application/javascript"
+    # Other headers (like cache control) can go here:
+    # Cache-Control = "public, max-age=3600"
