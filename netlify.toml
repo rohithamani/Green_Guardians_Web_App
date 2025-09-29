@@ -1,15 +1,16 @@
 [build]
-  # The command to run before deploying (npm run build creates the 'dist' folder)
   command = "npm run build"
-  
-  # The directory to deploy (the output of the vite build command)
   publish = "dist"
   
-# Headers section to fix the MIME type issue
+# This is the crucial section to fix the MIME type error.
+# It tells the server to use 'text/javascript' for all files.
 [[headers]]
   for = "/*"
   [headers.values]
-    # Use the standard MIME type for ES Modules (which Vite generates)
     Content-Type = "text/javascript" 
-    # Other headers (like cache control) can go here:
-    # Cache-Control = "public, max-age=3600"
+    
+# Optional: Add Cache Control for better performance
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
